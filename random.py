@@ -1,6 +1,7 @@
 import datetime
 import logging
 import time
+from telethon.tl.types import Message
 
 from telethon import types
 
