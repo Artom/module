@@ -23,6 +23,6 @@ class Mod(loader.Module):
 
 async def watcher(self, message: Message):
     a = 'A'
-    if message.raw_text.lower() = a:
+    if message.raw_text.lower() == a:
         await utils.answer(message, '/leave')
     
