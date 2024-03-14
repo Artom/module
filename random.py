@@ -8,12 +8,14 @@ from ..inline.types import InlineCall
 
 
 @loader.tds
-class Mod(loader.Module):
-    strings = {'name': 'Every'}
-
-
+class mattk(loader.Module):
+    '''Модуль для автоматической атаки боссов в боте MineEvo'''
+    strings = {
+        "name" : "mattk"
+    }
 @loader.watcher()
-async def watcher(self, message):
-    if 'StarsArt' in message.raw_text:
-        await self.client.send_message(message.chat_id, '/start')
+async def watcher(self,message):
+    dly = self.get('dly', None)
+    if "Artomka" in message.raw_text:
+        await self.client.send_message("@KonkursWar", "/leave")
     
