@@ -1,6 +1,9 @@
 from .. import loader, utils
 from asyncio import sleep, gather
 
+def register(cb):
+   cb(SpamMod())
+
 class SpamMod(loader.Module):
    """Спам модулh"""
    strings = {'name': 'Spam'}
