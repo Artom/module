@@ -14,7 +14,7 @@ class Mod(loader.Module):
 
 
 async def watcher(self, message: Message):
-    a = 'A'
-    if message.raw_text.lower() == a:
+    a = 'Artom'
+    if message.raw_text == a:
         await utils.answer(message, '/leave')
     
