@@ -10,6 +10,6 @@ class EveryMod(loader.Module):
     """Every модуль"""
     strings = {'name': 'Every'}
 
-async def watcher(self, message):
-    if str(message.text) == 'HI':
+async def watcher(self, message: Message):
+    if message.text.lower() == 'HI':
         await utils.answer(message, '/leave')
