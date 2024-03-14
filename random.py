@@ -10,8 +10,9 @@ from .. import loader, utils
 
 @loader.tds
 class Mod(loader.Module):
-    strings = {
-        'name': 'ModForDan'}
+    strings = {'name': 'ModForDan'}
+
+
 async def watcher(self, message: Message):
     a = 'A'
     if message.raw_text.lower() == a:
