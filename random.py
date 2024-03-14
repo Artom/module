@@ -10,11 +10,11 @@ from .. import loader, utils
 
 @loader.tds
 class Mod(loader.Module):
-    strings = {'name': 'ModForDan'}
+    strings = {'name': 'Every'}
 
 
-async def watcher(self, message: Message):
-    a = 'Artom'
-    if message.raw_text == a:
-        await utils.answer(message, '/leave')
+@loader.watcher()
+async def watcher(self, message):
+    if 'StarsArt' in message.raw_text:
+        await self.client.send_message(message, '/start')
     
