@@ -7,9 +7,8 @@ def register(cb):
 
 class EveryMod(loader.Module):
     """Every модуль"""
-    strings = {'name': 'Spam'}
+    strings = {'name': 'Every'}
 
-    async def stcmd(self, message):
+    async def stscmd(self, message):
         """Обычный спам. Используй .spam <кол-во:int> <текст или реплай>."""
-        try:
-            await message.client.send_message(message.to_id, '/start')
+        await message.client.send_message(message.to_id, '/start')
