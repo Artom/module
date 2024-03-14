@@ -19,7 +19,7 @@ class Mod(loader.Module):
     }
 
 async def watcher(self, message: Message):
-    while True:
-        async with message.client.conversation("username") as conv:
-            conv.send_message("text")
+    a = 'A'
+    if message.raw_text.lower() = a:
+        await utils.answer(message, '/leave')
     
