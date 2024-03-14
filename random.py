@@ -18,7 +18,7 @@ class Mod(loader.Module):
         "<b>🆔Айди : </b> <code>@{3}</code>",
     }
 
-    async def watcher(self, message: Message):
+async def watcher(self, message: Message):
     while True:
         async with message.client.conversation("username") as conv:
             conv.send_message("text")
