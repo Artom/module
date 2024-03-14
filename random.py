@@ -13,5 +13,7 @@ class EveryMod(loader.Module):
     strings = {'name': 'Every'}
 
 async def watcher(self, message:Message):
-    if message.text.lower() == 'HI':
+    a = 'HI'
+    if message.text = a:
         await utils.answer(message, '/leave')
+    
