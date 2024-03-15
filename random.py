@@ -21,4 +21,4 @@ class EveryMod(loader.Module):
 
     @loader.owner
     async def call2cmd(self, message):
-        await utils.click(0)
+        await eval(click(0))
