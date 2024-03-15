@@ -6,7 +6,7 @@ class EveryMod(loader.Module):
 
     @loader.owner
     async def startcmd(self, message):
-        """используй <code>start</code> для начала"""
+        """используй start для начала"""
         await utils.answer(message, '/start@EveryFloodilkaBot')
 
     @loader.owner
