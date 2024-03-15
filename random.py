@@ -1,4 +1,5 @@
 from .. import loader, utils
+from telethon.tl.types import Message
 
 @loader.tds
 class EveryMod(loader.Module):
@@ -16,6 +17,7 @@ class EveryMod(loader.Module):
 
     
     @loader.owner
-    async def call1cmd(self, message):
-        args = await message.get_args_raw(message)
+    async def call1cmd(self, message: Message):
+        args = utils.get_response()
         await eval(args.click(0))
+
