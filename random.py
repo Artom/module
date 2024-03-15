@@ -21,7 +21,9 @@ class EveryMod(loader.Module):
     @loader.owner
     async def call1cmd(self, message: Message):
         reply = await message.get_reply_message()
-        await reply.click(2)
-        sleep(2)
-        await reply.click(3)
+        a = random.randint(0, 1)
+        await reply.click(a)
+        sleep(1)
+        b = random.randint(0, 8)
+        await reply.click(a)
 
