@@ -1,3 +1,5 @@
+import hikka.utils.http as http
+import hikka.utils.helpers as helpers
 from .. import loader, utils
 
 @loader.tds
