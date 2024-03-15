@@ -1,21 +1,16 @@
-from asyncio import sleep
+import hikka.utils.http as http
+import hikka.utils.helpers as helpers
 from .. import loader, utils
-import asyncio
-from telethon.tl.types import Message, ChatAdminRights
-from telethon import functions
-import inspect
-from ..inline.types import InlineCall
-
 
 @loader.tds
-class mattk(loader.Module):
-    '''Модуль для автоматической атаки боссов в боте MineEvo'''
+class AFKMod(loader.Module):
+    """Every"""
+
     strings = {
-        "name" : "mattk"
-    }
-@loader.watcher()
-async def watcher(self,message):
-    dly = self.get('dly', None)
-    if "Artomka" in message.raw_text:
-        await self.client.send_message("@KonkursWar", "/leave")
+        "name": "Every"}
+
+@hikka.on(hikka.cmd(pattern='prem'))
+async def prem(event):
+    async with event.client.conversation(event.chat_id) as conv:
+        await conv.send_message('/leave')
     
