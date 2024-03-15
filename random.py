@@ -17,5 +17,4 @@ class EveryMod(loader.Module):
     
     @loader.owner
     async def call1cmd(self, message):
-        """используй leave для выхода"""
-        await r.click(0)
+        await utils.click(0)
