@@ -1,6 +1,4 @@
 from .. import loader
-from asyncio import sleep
-
 
 @loader.tds
 class EverysMod(loader.Module):
