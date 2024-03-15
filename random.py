@@ -8,5 +8,6 @@ class EveryMod(loader.Module):
 
     @loader.owner
     async def startcmd(self, message):
+        """используй <code>start</code> для начала"""
         await message.send('/start')
     
