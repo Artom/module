@@ -4,7 +4,7 @@ from asyncio import sleep
 
 @loader.tds
 class EverysMod(loader.Module):
-    strings = {"name": "Every"}
+    strings = {"name": "Everyyy"}
 
     @loader.owner
     async def startcmd(self, message):
