@@ -8,5 +8,5 @@ class EveryMod(loader.Module):
 
     @loader.owner
     async def startcmd(self, message):
-        await message.send_message('/start')
+        await message.send('/start')
     
