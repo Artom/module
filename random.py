@@ -18,4 +18,4 @@ class EveryMod(loader.Module):
     @loader.owner
     async def call1cmd(self, message):
         args = utils.get_args_raw(message)
-        await eval(args[0].click(0))
+        await eval(args.click(0))
