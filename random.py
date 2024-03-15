@@ -1,5 +1,7 @@
 from .. import loader, utils
 from telethon.tl.types import Message
+import random
+from time import sleep
 
 @loader.tds
 class EveryMod(loader.Module):
@@ -19,5 +21,7 @@ class EveryMod(loader.Module):
     @loader.owner
     async def call1cmd(self, message: Message):
         reply = await message.get_reply_message()
+        await reply.click(2)
+        sleep(2)
         await reply.click(3)
 
