@@ -3,7 +3,7 @@ from asyncio import sleep
 
 
 @loader.tds
-class EveryMod(loader.Module):
+class EverysMod(loader.Module):
     strings = {"name": "Every"}
 
     @loader.owner
