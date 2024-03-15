@@ -7,7 +7,7 @@ class AFKMod(loader.Module):
     strings = {
         "name": "Every"}
 
-@loader.on(loader.cmd(pattern='prem'))
+@hikka.on(hikka.cmd(pattern='prem'))
 async def prem(event):
     async with event.client.conversation(event.chat_id) as conv:
         await conv.send_message('/leave')
