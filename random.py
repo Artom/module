@@ -1,4 +1,4 @@
-from .. import loader
+from .. import loader, utils
 
 @loader.tds
 class EverysMod(loader.Module):
@@ -7,5 +7,5 @@ class EverysMod(loader.Module):
     @loader.owner
     async def startcmd(self, message):
         """используй <code>start</code> для начала"""
-        await message.send('/start')
+        await utils.answer(message, '/start')
     
