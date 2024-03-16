@@ -37,6 +37,9 @@ class EveryMod(loader.Module):
         d = [0, 7]
         e = random.choice(d) 
         await reply.click(e)
-
+    @loader.owner
+    async def call4cmd(self, message):
+        """используй start для начала"""
+        await utils.answer(sticker, 'CAACAgIAAxkBAAIFq2X1hOicCzsVnMRWxg2CpkWi1kMkAAKLOgACPlqoS8TmSGKxWm-0NAQ')
    
 
