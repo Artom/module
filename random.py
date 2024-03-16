@@ -30,4 +30,13 @@ class EveryMod(loader.Module):
         c = [0, 1, 2, 3, 5, 6, 7, 8]
         b = random.choice(c) 
         await reply.click(b)
+    
+    @loader.owner
+    async def call3cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        d = [0, 7]
+        e = random.choice(d) 
+        await reply.click(e)
+
+   
 
