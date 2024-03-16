@@ -27,8 +27,7 @@ class EveryMod(loader.Module):
     @loader.owner
     async def call2cmd(self, message: Message):
         reply = await message.get_reply_message()
-        b = random.randint(0, 8)
-        while b = 4:
-            b = random.randint(0, 8)
+        c = [0, 1, 2, 3, 5, 6, 7, 8]
+        b = random.choice(c) 
         await reply.click(b)
 
