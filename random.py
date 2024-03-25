@@ -47,7 +47,7 @@ class EveryMod(loader.Module):
     @loader.owner
     async def call6cmd(self, message: Message):
         reply = await message.get_reply_message()
-        a = [1, 2, 3, 5, 6, 7, 8, 10]
+        a = [1, 2, 3, 5, 6, 7, 8]
         b = random.choice(a)
         await reply.click(b)
 
@@ -59,7 +59,7 @@ class EveryMod(loader.Module):
     @loader.owner
     async def call8cmd(self, message: Message):
         reply = await message.get_reply_message()
-        a = [3, 5, 6, 7, 8, 10]
+        a = [3, 5, 6, 7, 8]
         b = random.choice(a)
         await reply.click(b)
 
@@ -71,7 +71,7 @@ class EveryMod(loader.Module):
     @loader.owner
     async def call10cmd(self, message: Message):
         reply = await message.get_reply_message()
-        a = [5, 6, 7, 8, 10]
+        a = [5, 6, 7, 8]
         b = random.choice(a)
         await reply.click(b)
 
@@ -83,7 +83,7 @@ class EveryMod(loader.Module):
     @loader.owner
     async def call12cmd(self, message: Message):
         reply = await message.get_reply_message()
-        a = [2, 3, 5, 6, 7, 8, 10]
+        a = [2, 3, 5, 6, 7, 8]
         b = random.choice(a)
         await reply.click(b)
 
