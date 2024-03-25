@@ -26,23 +26,64 @@ class EveryMod(loader.Module):
     
     @loader.owner
     async def call2cmd(self, message: Message):
-        reply = await message.get_reply_message()
-        c = [1, 2, 3, 5, 6, 7, 8]
-        b = random.choice(c) 
-        await reply.click(b)
+        reply = await message.get_reply_message() 
+        await reply.click(9)
     
     @loader.owner
     async def call3cmd(self, message: Message):
         reply = await message.get_reply_message()
-        d = [0, 7]
-        e = random.choice(d) 
-        await reply.click(e)
+        await reply.click(12)
         
     @loader.owner
     async def call4cmd(self, message: Message):
         reply = await message.get_reply_message()
-        f = [9, 11]
-        g = random.choice(f) 
-        await reply.click(g)
-   
+        await reply.click(7)
+
+    @loader.owner
+    async def call5cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        await reply.click(5)
+
+    @loader.owner
+    async def call6cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        a = [1, 2, 3, 5, 6, 7, 8, 10]
+        b = random.choices(a)
+        await reply.click(b)
+
+    @loader.owner
+    async def call7cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        await reply.click(6)
+
+    @loader.owner
+    async def call8cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        a = [3, 5, 6, 7, 8, 10]
+        b = random.choices(a)
+        await reply.click(b)
+
+    @loader.owner
+    async def call9cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        await reply.click(7)
+
+    @loader.owner
+    async def call10cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        a = [5, 6, 7, 8, 10]
+        b = random.choices(a)
+        await reply.click(b)
+
+    @loader.owner
+    async def call11cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        await reply.click(8)
+
+    @loader.owner
+    async def call12cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        a = [2, 3, 5, 6, 7, 8, 10]
+        b = random.choices(a)
+        await reply.click(b)
 
