@@ -87,3 +87,11 @@ class EveryMod(loader.Module):
         b = random.choice(a)
         await reply.click(b)
 
+    @loader.owner
+    async def call13cmd(self, message):
+        await utils.answer(message, 'Карта эссенции')
+
+    @loader.owner
+    async def call14cmd(self, message):
+        await utils.answer(message, 'Карта крепости')
+
