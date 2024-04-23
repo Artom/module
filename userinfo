@@ -14,7 +14,7 @@ class InfoMod(loader.Module):
         "not_chat": "🚫 <b>This is not a chat!</b>",
     }
 
-    async def userinfocmd(self, message: Message):
+    async def userinfoscmd(self, message: Message):
         """Get object infomation"""
         args = utils.get_args_raw(message)
         reply = await message.get_reply_message()
