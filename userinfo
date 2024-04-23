@@ -43,12 +43,12 @@ class InfoArtom(loader.Module):
         photo = await self._client.download_profile_photo(user_ent.id, bytes)
 
         user_info = (
-            f"<b>🎭First name:</b> {user_ent.first_name or '❌'}\n"
-            f"<b>🥷Last name:</b> {user_ent.last_name or '❌'}\n"
+            f"<b>🎭Name:</b> {user_ent.first_name or '❌'}\n"
             f"<b>🚀Username:</b> @{user_ent.username or '❌'}\n"
-            f"<b>🆔:</b> <code>/banid {user_ent.id}</code>\n"
             f"<b>🌗USER:</b> <code>#user{user_ent.id}</code>\n"
-            f'<b><a href="tg://user?id={user_ent.id}">🔰 Permalink</a></b>\n\n'
+            f"<b>🆔:</b> <code>{user_ent.id}</code>\n"
+            f"<b>🔰Команда:</b> <code>/banid {user_ent.id}</code>\n"
+
         )
         await utils.answer(
             message,
