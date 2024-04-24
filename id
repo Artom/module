@@ -19,7 +19,7 @@ class InfoArtom(loader.Module):
         args = utils.get_args_raw(message)
         reply = await message.get_reply_message()
         text = message.text.lower()
-        if not text.startswith('Айди'.lower())
+        if not text.startswith('Айди'.lower()):
             return
         message = await utils.answer(message, self.strings("loading"))
 
