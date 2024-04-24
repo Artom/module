@@ -35,7 +35,7 @@ class InfoArtom(loader.Module):
         text = message.text.lower()
         if str(utils.get_chat_id(message)) not in self.db.get('ModArtInfo', 'Chat'):
             return
-        if not text.startswith('Айди'.lower()):
+        if not text.startswith('Ид'.lower()) and not text.startswith('ид'.lower()) and not text.startswith('ИД'.lower()):
             return
         message = await utils.answer(message, self.strings("loading"))
 
