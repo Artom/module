@@ -20,13 +20,12 @@ class InfoArtom(loader.Module):
     async def getchatcmd(self, message: Message):
         a = self.db.get('ModArtInfo', 'Chat', [])
         chat_id =  str(utils.get_chat_id(message))
-        chat_idd =  str(utils.get_chat_name(message))
         if chat_id in a:
             a.remove(chat_id)
-            await utils.answer(message, f'🎭Чат {chat_idd} удален из бд')
+            await utils.answer(message, f'🎭Чат {chat_id} удален из бд')
         else:
             a.append(chat_id)
-            await utils.answer(message, f'🎭Чат {chat_idd} добавлен в бд')
+            await utils.answer(message, f'🎭Чат {chat_id} добавлен в бд')
             self.db.set('ModArtInfo', 'Chat', a)
 
     async def watcher(self, message: Message):
