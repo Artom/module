@@ -9,7 +9,7 @@ class InfoArtomComands(loader.Module):
     """Retrieve information about bot/user/chat"""
 
     strings = {
-        "name": "Info",
+        "name": "InfoComands",
         "loading": "💠 <b>Загружаю инфу...</b>",
         "not_chat": "❌ <b>Юзер не найден</b>",
     }
