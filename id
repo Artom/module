@@ -1,0 +1,61 @@
+from telethon.tl.functions.users import GetFullUserRequest
+from telethon.tl.types import Message
+
+from .. import loader, utils
+
+
+@loader.tds
+class InfoArtom(loader.Module):
+    """Retrieve information about bot/user/chat"""
+
+    strings = {
+        "name": "Info",
+        "loading": "💠 <b>Загружаю инфу...</b>",
+        "not_chat": "❌ <b>Юзер не найден</b>",
+    }
+
+    async def watcher(self, message: Message):
+        """Get object infomation"""
+        args = utils.get_args_raw(message)
+        reply = await message.get_reply_message()
+        text = message.text.lower()
+        if not text.startswith('Айди'.lower())
+            return
+        message = await utils.answer(message, self.strings("loading"))
+
+        try:
+            user_id = (
+                (
+                    (
+                        await self._client.get_entity(
+                            args if not args.isdigit() else int(args)
+                        )
+                    ).id
+                )
+                if args
+                else reply.sender_id
+            )
+        except Exception:
+            user_id = self._tg_id
+
+        user = await self._client(GetFullUserRequest(user_id))
+
+        user_ent = user.users[0]
+
+        photo = await self._client.download_profile_photo(user_ent.id, bytes)
+
+        user_info = (
+            f"<b>🎭Name:</b> {user_ent.first_name or '❌'}\n"
+            f"<b>🚀Username:</b> @{user_ent.username or '❌'}\n"
+            f"<b>🌗USER:</b> <code>#user{user_ent.id}</code>\n"
+            f"<b>🆔:</b> <code>{user_ent.id}</code>\n"
+            f"<b>🔰Команда:</b> <code>/banid {user_ent.id}</code>\n"
+
+        )
+        await utils.answer(
+            message,
+            user_info,
+               reply_to=reply.id if reply else None,
+               link_preview=False,
+           )
+    
