@@ -13,12 +13,28 @@ class InfoArtom(loader.Module):
         "loading": "💠 <b>Загружаю инфу...</b>",
         "not_chat": "❌ <b>Юзер не найден</b>",
     }
+    async def client_ready(self, message: Message):
+        if not self.db.get('ModArtInfo', 'Chat'):
+            self.db.set('ModArtInfo', 'Chat', [])
+
+    async def getchatcmd(self, message: Message):
+        a = self.db.get('ModArtInfo', 'Chat', [])
+        chat_id =  message.sender_id
+        if chat_id in a:
+            a.remove(chat_id)
+            await utils.answer(message, f'Чат {chat_id} удален')
+        else:
+            a.append(chat_id)
+            await utils.answer(message, f'Чат {chat_id} добавлен')
+            self.db.set('ModArtInfo', 'Chat', a)
 
     async def watcher(self, message: Message):
         """Get object infomation"""
         args = utils.get_args_raw(message)
         reply = await message.get_reply_message()
         text = message.text.lower()
+        if message.sender_id not in self.db.get('ModArtInfo', 'Chat'):
+            return
         if not text.startswith('Айди'.lower()):
             return
         message = await utils.answer(message, self.strings("loading"))
