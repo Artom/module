@@ -19,13 +19,13 @@ class InfoArtom(loader.Module):
 
     async def getchatcmd(self, message: Message):
         a = self.db.get('ModArtInfo', 'Chat', [])
-        chat_id =  message.sender_id
+        chat_id =  str(utils.get_chat_id(message))
         if chat_id in a:
             a.remove(chat_id)
-            await utils.answer(message, f'Чат {chat_id} удален')
+            await utils.answer(message, f'🎭Чат {chat_id} удален из бд')
         else:
             a.append(chat_id)
-            await utils.answer(message, f'Чат {chat_id} добавлен')
+            await utils.answer(message, f'🎭Чат {chat_id} добавлен в бд')
             self.db.set('ModArtInfo', 'Chat', a)
 
     async def watcher(self, message: Message):
@@ -33,7 +33,7 @@ class InfoArtom(loader.Module):
         args = utils.get_args_raw(message)
         reply = await message.get_reply_message()
         text = message.text.lower()
-        if message.sender_id not in self.db.get('ModArtInfo', 'Chat'):
+        if str(utils.get_chat_id(message)) not in self.db.get('ModArtInfo', 'Chat'):
             return
         if not text.startswith('Айди'.lower()):
             return
