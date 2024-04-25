@@ -1,0 +1,77 @@
+from telethon.tl.functions.users import GetFullUserRequest
+from telethon.tl.types import Message
+
+from .. import loader, utils
+
+
+@loader.tds
+class InfoArtomReply(loader.Module):
+    """Retrieve information about bot/user/chat"""
+
+    strings = {
+        "name": "InfoReply",
+        "loading": "💠 <b>Загружаю инфу...</b>",
+        "not_chat": "❌ <b>Юзер не найден</b>",
+    }
+    async def client_ready(self, client, db):
+        if not self.db.get('ModArtInfo', 'Chat'):
+            self.db.set('ModArtInfo', 'Chat', [])
+
+    async def getchatcmd(self, message: Message):
+        a = self.db.get('ModArtInfo', 'Chat', [])
+        chat_id =  str(utils.get_chat_id(message))
+        if chat_id in a:
+            a.remove(chat_id)
+            await utils.answer(message, f'🎭Чат {chat_id} удален из бд')
+        else:
+            a.append(chat_id)
+            await utils.answer(message, f'🎭Чат {chat_id} добавлен в бд')
+            self.db.set('ModArtInfo', 'Chat', a)
+
+    async def watcher(self, message: Message):
+        """Get object infomation"""
+        args = utils.get_args_raw(message)
+        reply = await message.get_reply_message()
+        text = message.text.lower()
+        if str(utils.get_chat_id(message)) not in self.db.get('ModArtInfo', 'Chat'):
+            return
+        if not text.startswith('Ид'.lower()) and not text.startswith('ид'.lower()) and not text.startswith('ИД'.lower()):
+            return
+        message = await utils.answer(args, self.strings("loading"))
+
+        try:
+            user_id = (
+                (
+                    (
+                        await self._client.get_entity(
+                            args if not args.isdigit() else int(args)
+                        )
+                    ).id
+                )
+                if args
+                else reply.sender_id
+            )
+        except Exception:
+            user_id = self._tg_id
+
+        user = await self._client(GetFullUserRequest(user_id))
+
+        user_ent = user.users[0]
+
+        photo = await self._client.download_profile_photo(user_ent.id, bytes)
+
+        user_info = (
+            f"<b>🎭Name:</b> {user_ent.first_name or '❌'}\n"
+            f"<b>🚀Username:</b> @{user_ent.username or '❌'}\n"
+            f"<b>🌗USER:</b> <code>#user{user_ent.id}</code>\n"
+            f"<b>🆔:</b> <code>{user_ent.id}</code>\n"
+            f"<b>🔰Команда:</b> <code>/banid {user_ent.id}</code>\n"
+
+        )
+        await utils.answer(
+            args,
+            user_info,
+               reply_to=reply.id if reply else None,
+               link_preview=False,
+           )
+    
