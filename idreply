@@ -71,7 +71,6 @@ class InfoArtomReply(loader.Module):
         await utils.answer(
             message.sender_id,
             user_info,
-               reply_to=reply.id if reply else None,
-               link_preview=False,
+               reply_to=reply.id if reply else None
            )
     
