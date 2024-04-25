@@ -37,7 +37,7 @@ class InfoArtomReply(loader.Module):
             return
         if not text.startswith('Ид'.lower()) and not text.startswith('ид'.lower()) and not text.startswith('ИД'.lower()):
             return
-        message = await utils.answer(message.sender_id, self.strings("loading"))
+       
 
         try:
             user_id = (
