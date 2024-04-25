@@ -14,11 +14,11 @@ class InfoArtomReply(loader.Module):
         "not_chat": "❌ <b>Юзер не найден</b>",
     }
     async def client_ready(self, client, db):
-        if not self.db.get('ModArtInfo', 'Chat'):
-            self.db.set('ModArtInfo', 'Chat', [])
+        if not self.db.get('ModArtInfoReply', 'Chat'):
+            self.db.set('ModArtInfoReply', 'Chat', [])
 
     async def getchatcmd(self, message: Message):
-        a = self.db.get('ModArtInfo', 'Chat', [])
+        a = self.db.get('ModArtInfoReply', 'Chat', [])
         chat_id =  str(utils.get_chat_id(message))
         if chat_id in a:
             a.remove(chat_id)
@@ -26,18 +26,18 @@ class InfoArtomReply(loader.Module):
         else:
             a.append(chat_id)
             await utils.answer(message, f'🎭Чат {chat_id} добавлен в бд')
-            self.db.set('ModArtInfo', 'Chat', a)
+            self.db.set('ModArtInfoReply', 'Chat', a)
 
     async def watcher(self, message: Message):
         """Get object infomation"""
         args = utils.get_args_raw(message)
         reply = await message.get_reply_message()
         text = message.text.lower()
-        if str(utils.get_chat_id(message)) not in self.db.get('ModArtInfo', 'Chat'):
+        if str(utils.get_chat_id(message)) not in self.db.get('ModArtInfoReply', 'Chat'):
             return
         if not text.startswith('Ид'.lower()) and not text.startswith('ид'.lower()) and not text.startswith('ИД'.lower()):
             return
-        message = await utils.answer(args, self.strings("loading"))
+        message = await utils.answer(message.sender_id, self.strings("loading"))
 
         try:
             user_id = (
@@ -69,7 +69,7 @@ class InfoArtomReply(loader.Module):
 
         )
         await utils.answer(
-            args,
+            message.sender_id,
             user_info,
                reply_to=reply.id if reply else None,
                link_preview=False,
