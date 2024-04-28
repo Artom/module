@@ -35,7 +35,7 @@ class InfoArtomReply(loader.Module):
         text = message.text.lower()
         if str(utils.get_chat_id(message)) not in self.db.get('ModArtInfoReply', 'Chat'):
             return
-        if not in message.text 'ид' and not in message.text 'Ид' and not in message.text 'ИД':
+        if ''.join(message.text.splite()[0]) != 'ид' and ''.join(message.text.splite()[0]) != 'Ид' and ''.join(message.text.splite()[0]) != 'ИД':
             return
        
 
