@@ -53,7 +53,8 @@ class InfoArtomReply(loader.Module):
                 else reply.sender_id
             )
         except Exception:
-            return
+            await utils.answer(
+            message.sender_id, '🚫Юзер не найден')
 
         user = await self._client(GetFullUserRequest(user_id))
 
