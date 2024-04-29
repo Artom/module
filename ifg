@@ -54,7 +54,7 @@ class InfoArtomReply(loader.Module):
             )
         except Exception:
             await utils.answer(
-            message.sender_id, '🚫Юзер не найден')
+            message.sender_id, '🚫Юзер не найден', reply_to=reply.id if reply else None)
 
         user = await self._client(GetFullUserRequest(user_id))
 
