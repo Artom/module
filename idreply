@@ -37,7 +37,8 @@ class InfoArtomReply(loader.Module):
             return
         if ''.join(message.text.splite()[0]) != 'ид' and ''.join(message.text.splite()[0]) != 'Ид' and ''.join(message.text.splite()[0]) != 'ИД' and (''.join(message.text.splite()[1]))[0] != '@':
             return
-       
+        if (''.join(message.text.splite()[1]))[0] != '@':
+            return
 
         try:
             user_id = (
