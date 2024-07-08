@@ -1,0 +1,33 @@
+from .. import loader, utils
+from telethon.tl.types import Message
+import random
+from time import sleep
+
+@loader.tds
+class EveryMod(loader.Module):
+    strings = {"name": "EverySorcerer"}
+
+    @loader.owner
+    async def startcmd(self, message):
+        """используй start для начала"""
+        await utils.answer(message, '/sgame@EveryFloodilkaBot')
+
+    @loader.owner
+    async def leavecmd(self, message):
+        """используй leave для выхода"""
+        await utils.answer(message, '/leave s')
+
+    @loader.owner
+    async def call1cmd(self, message: Message):
+        reply = await message.get_reply_message()
+        a = (''.join(message.text.split()[1]))
+        b = random.randint(3, 11)
+        c = random.randint(3, 11)
+        d = random.randint(3, 11)
+        await reply.click(b)
+        await asynico.sleeep (1)
+        await reply.click(c)
+        await asynico.sleeep (1)
+        await reply.click(d)
+        await asynico.sleeep (1)
+        await reply.click(text=a)
