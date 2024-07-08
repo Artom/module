@@ -1,7 +1,6 @@
 from .. import loader, utils
 from telethon.tl.types import Message
 import random
-import asynico
 from time import sleep
 
 @loader.tds
@@ -26,9 +25,9 @@ class EveryMod(loader.Module):
         c = random.randint(3, 11)
         d = random.randint(3, 11)
         await reply.click(b)
-        await asynico.sleeep (1)
+        sleeep (1)
         await reply.click(c)
-        await asynico.sleeep (1)
+        sleeep (1)
         await reply.click(d)
-        await asynico.sleeep (1)
+        sleeep (1)
         await reply.click(text=a)
