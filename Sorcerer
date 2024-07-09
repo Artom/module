@@ -21,15 +21,14 @@ class EveryMod(loader.Module):
     async def sorcerercmd(self, message: Message):
         """используй sorcerer для хода"""
         reply = await message.get_reply_message()
-        a = message.text.split(' ', 2)[2]
-        b = (''.join(message.text.split()[1]))
-        c = random.choice(b)
-        d = random.choice(b)
-        e = random.choice(b)
+        a = message.text.split(' ', 1)[1]
+        c = random.randint(1, 11)
+        d = random.randint(1, 11)
+        e = random.randint(1, 11)
         while c == d  or c == e or e == d:
-            c = random.choice(b)
-            d = random.choice(b)
-            e = random.choice(b)
+            c = random.randint(1, 11)
+            d = random.randint(1, 11)
+            e = random.randint(1, 11)
         await reply.click(e)
         await reply.click(c)
         await reply.click(d)
