@@ -27,9 +27,9 @@ class EveryMod(loader.Module):
         d = random.choice(b)
         e = random.choice(b)
         while c == d  or c == e or e == d:
-            c = random.cohice(b)
-            d = random.cohice(b)
-            e = random.cohice(b)
+            c = random.choice(b)
+            d = random.choice(b)
+            e = random.choice(b)
         await reply.click(e)
         await reply.click(c)
         await reply.click(d)
