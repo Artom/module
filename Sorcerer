@@ -24,11 +24,15 @@ class EveryMod(loader.Module):
         b = random.randint(3, 11)
         c = random.randint(3, 11)
         d = random.randint(3, 11)
+        while b == c or b === d or c == d:
+            b = random.randint(3, 11)
+            c = random.randint(3, 11)
+            d = random.randint(3, 11)
         await reply.click(b)
         sleep (1)
         await reply.click(c)
         sleep (2)
         await reply.click(d)
         sleep (1)
-        await reply.click(text=a)
+        await reply.click(text=f'{a}')
 
