@@ -24,7 +24,7 @@ class EveryMod(loader.Module):
         b = random.randint(3, 11)
         c = random.randint(3, 11)
         d = random.randint(3, 11)
-        while b == c or b === d or c == d:
+        while b==c  or b == d or c == d:
             b = random.randint(3, 11)
             c = random.randint(3, 11)
             d = random.randint(3, 11)
