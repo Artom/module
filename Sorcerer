@@ -29,10 +29,8 @@ class EveryMod(loader.Module):
             c = random.randint(3, 11)
             d = random.randint(3, 11)
         await reply.click(b)
-        sleep (1)
         await reply.click(c)
-        sleep (2)
         await reply.click(d)
-        sleep (1)
+        sleep (2)
         await reply.click(text=a)
 
