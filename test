@@ -29,6 +29,8 @@ class EveryMod(loader.Module):
             b = f'{user_id_my}'
             if f'{a}' == f'{b}':
                 await utils.answer(message, '/sgame@EveryFloodilkaBot')
+         else:
+             await utils.answer(message, f'ID: {user_id_my}')
 
     @loader.owner
     async def myidcmd(self, message):
