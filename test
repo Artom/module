@@ -50,7 +50,8 @@ class EveryMod(loader.Module):
         user_id_my = user_ent.id
         if len(message.text.split()[1:]) > 0:
             a = (''.join(message.text.split()[1]))
-            if a == user_id_my:
+            b = f'{user_id_my}'
+            if f'{a}' == f'{b}':
                 await utils.answer(message, '/leave s')
 
     @loader.owner
@@ -65,7 +66,8 @@ class EveryMod(loader.Module):
         b = emoji.distinct_emoji_list(a)
         c = (''.join(message.text.split()[2]))
         d = (''.join(message.text.split()[3]))
-        if d == user_id_my:
+        bb = f'{user_id_my}'
+        if f'{d}' == f'{bb}':
             for el in b:
                 await reply.click(text=el[0])
             sleep (2)
