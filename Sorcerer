@@ -25,9 +25,9 @@ class EveryMod(loader.Module):
         b = int(''.join(message.text.split()[2]))
         c = int(''.join(message.text.split()[3]))
         d = message.text.split(' ', 4)[4]
-        await reply.click(b)
-        await reply.click(c)
-        await reply.click(d)
+        await reply.click(int(a))
+        await reply.click(int(b))
+        await reply.click(int(c))
         sleep (2)
-        await reply.click(text=a)
+        await reply.click(text=d)
 
