@@ -31,7 +31,7 @@ class EveryMod(loader.Module):
 
     @loader.owner
     async def myidcmd(self, message):
-        """используй sleave для выхода"""
+        """используй myid для ID"""
         user_id = self._tg_id
         user = await self._client(GetFullUserRequest(user_id))
         user_ent = user.users[0]
