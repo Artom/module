@@ -21,10 +21,10 @@ class EveryMod(loader.Module):
     async def sorcerercmd(self, message: Message):
         """используй sorcerer для хода"""
         reply = await message.get_reply_message()
-        a = (''.join(message.text.split()[1]))
-        b = (''.join(message.text.split()[1]))
-        c = (''.join(message.text.split()[1]))
-        d = message.text.split(' ', 1)[1]
+        a = int(''.join(message.text.split()[1]))
+        b = int(''.join(message.text.split()[2]))
+        c = int(''.join(message.text.split()[3]))
+        d = message.text.split(' ', 4)[4]
         await reply.click(b)
         await reply.click(c)
         await reply.click(d)
