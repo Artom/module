@@ -29,7 +29,7 @@ class EveryMod(loader.Module):
             if a == user_id_my:
                 await utils.answer(message, '/sgame@EveryFloodilkaBot')
 
- @loader.owner
+    @loader.owner
     async def myidcmd(self, message):
         """используй sleave для выхода"""
         user_id = self._tg_id
