@@ -3,10 +3,10 @@ from telethon.tl.types import Message
 import random
 import emoji
 from time import sleep
-import contextlib
-import os
-import platform
-import sys
+from telethon.tl.functions.users import GetFullUserRequest
+from telethon.tl.types import Message
+
+from .. import loader, utils
 
 import psutil
 from telethon.tl.types import Message
