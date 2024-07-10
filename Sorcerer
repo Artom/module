@@ -28,5 +28,5 @@ class EveryMod(loader.Module):
         for el in b:
             await reply.click(text=el[0])
         sleep (2)
-        await reply.click(text=a)
+        await reply.click(text=c)
 
