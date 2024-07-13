@@ -123,7 +123,7 @@ class AcTimeMod(loader.Module):
             reply = await message.get_reply_message()
             if len(message.text.split()[1:]) > 0 and (''.join(message.text.split()[1])).isdigit() == True:
                 date = self.time_format(
-                    unix_time=round(interpolation.func(int((''.join(message.text.split()[1])))))
+                    unix_time=round(interpolation.func(int((''.join(message.text.split()[1]))))))
             elif reply:
                 date = self.time_format(
                     unix_time=round(interpolation.func(int(reply.sender.id)))
