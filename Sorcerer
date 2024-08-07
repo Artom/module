@@ -11,7 +11,7 @@ class EveryMod(loader.Module):
     @loader.owner
     async def sgamecmd(self, message):
         """используй sgame для начала"""
-        await utils.answer(message, '/sgame@EveryFloodilkaBot')
+        await utils.answer(message, '/sgame')
 
     @loader.owner
     async def sleavecmd(self, message):
