@@ -39,7 +39,8 @@ class EveryMod(loader.Module):
         user = await self._client(GetFullUserRequest(user_id))
         user_ent = user.users[0]
         user_id_my = user_ent.id
-        await utils.answer(message, f'ID: {user_id_my}')
+        reply = await message.get_reply_message()
+        await utils.answer(message, f'ID: {user_id_my}\n{reply}')
 
     @loader.owner
     async def sleavecmd(self, message):
