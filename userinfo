@@ -43,6 +43,7 @@ class InfoArtom(loader.Module):
         photo = await self._client.download_profile_photo(user_ent.id, bytes)
 
         user_info = (
+            f"#userinfochat\n"
             f"<b>🎭Name:</b> {user_ent.first_name or '❌'}\n"
             f"<b>🚀Username:</b> @{user_ent.username or '❌'}\n"
             f"<b>🌗USER:</b> <code>#user{user_ent.id}</code>\n"
